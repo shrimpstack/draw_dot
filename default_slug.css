@@ -1,0 +1,28 @@
+.normal_move_slughome { position: relative; }
+.normal_move_slughome [slug] { position: absolute; }
+
+.free_move_slughome { position: relative; }
+.free_move_slughome [slug] { position: absolute; }
+
+.slug_grid {
+  position: relative;
+  display: grid;
+  grid-auto-flow: var(--flow, row);
+  grid-template-columns: repeat(auto-fill, var(--column_width, auto));
+  grid-template-rows: repeat(auto-fill, var(--row_height, auto));
+  grid-auto-columns: var(--column_width, auto);
+  grid-auto-rows: var(--row_height, auto);
+}
+.slug_grid.squirming > * {
+  position: absolute;
+  transition: left .3s, top .3s;
+  width: var(--column_width, auto);
+  height: var(--row_height, auto);
+  box-sizing: border-box;
+}
+.slug_grid.squirming > *.squirming {
+  transition: unset;
+}
+.slug_grid:not(.squirming) > *.temp_pos {
+  display: none;
+}

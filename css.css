@@ -1,0 +1,78 @@
+#draw {
+  background: conic-gradient(#f6f6f6 90deg, #fff 90deg, #fff 180deg, #f6f6f6 180deg, #f6f6f6 270deg, #fff 270deg) repeat left top / 17px 17px;
+}
+#draw, #view {
+  border: 2px solid #aaa;
+}
+#mini_view {
+  border: 1px solid #aaa;
+}
+
+/* 調色盤 */
+#palette {
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  grid-template-rows: 1fr 20px;
+  grid-template-areas: "h cur" "sl a";
+  width: 200px;
+  height: 200px;
+  gap: 8px;
+}
+#palette .sl {
+  position: relative;
+  border: 1px solid #333;
+  background: linear-gradient(#fff, transparent, #000), linear-gradient(90deg, #808080, transparent), #f00;
+  overflow: hidden;
+}
+#palette .sl [slug] { top: 100%; }
+#palette .h {
+  position: relative;
+  border: 1px solid #333;
+  background: linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+#palette .a {
+  position: relative;
+  border: 1px solid #333;
+  background: linear-gradient(currentColor, transparent),
+  conic-gradient(#eee 90deg, #fff 90deg, #fff 180deg, #eee 180deg, #eee 270deg, #fff 270deg) repeat bottom / 18px 18px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+#palette .cur {
+  position: relative;
+  border: 1px solid #333;
+  background: linear-gradient(currentColor, currentColor), conic-gradient(#eee 90deg, #fff 90deg, #fff 180deg, #eee 180deg, #eee 270deg, #fff 270deg);
+}
+#palette > div > div {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#palette > div > div:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #fff;
+  outline: 1px solid #000;
+  border-radius: 50%;
+}
+
+/*存顏色*/
+#colors {
+  display: grid;
+  grid-template-columns: repeat(8, 32px);
+  grid-auto-rows: 32px;
+  gap: 8px;
+  margin-top: 10px;
+}
+#colors div {
+  color: transparent;
+  border: 1px solid #333;
+  background: linear-gradient(currentColor, currentColor), conic-gradient(#f6f6f6 90deg, #fff 90deg, #fff 180deg, #f6f6f6 180deg, #f6f6f6 270deg, #fff 270deg);
+}
